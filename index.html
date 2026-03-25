@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Asistencia</title>
+  <link rel="stylesheet" href="estilo.css">
+
+  <!-- PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <!-- 🔴 SE MANTIENE EXACTAMENTE TU ENCABEZADO -->
+    <h1>CONTROL DE ASISTENCIA</h1>
+    <h1>3RO DE SECUNDARIA</h1>
+    <h1>Asesor Prof. Humberto Yupanqui C.</h1>
+
+    <form id="asistenciaForm">
+
+    <label>Fecha:</label>
+    <div class="fila-fecha">
+      <input type="date" id="fecha" required>
+      <button type="button" id="agregarFecha">Agregar Fecha</button>
+    </div>
+
+      <table id="tablaAsistencia">
+        <thead>
+          <tr>
+            <th>N°</th>
+            <th>Apellidos y Nombres</th>
+            <th>Género</th>
+            <!-- Fechas dinámicas -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- JS llena aquí -->
+        </tbody>
+      </table>
+
+      <br>
+
+      <!-- BOTÓN + LOADING -->
+      <div class="send-container">
+        <center>
+          <button type="submit" class="btn-registrar">Registrar y Enviar</button>
+        </center>
+
+        <div id="loading" class="loading">
+          <div class="spinner"></div>
+          <p>⏳ Enviando datos, espere...</p>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modalExito" class="modal">
+    <div class="modal-content">
+      <h3>✅ Registro exitoso</h3>
+      <p>Se registró correctamente el seguimiento de estudiantes.</p>
+      <div class="modal-buttons">
+        <button id="btnDescargar">📄 Descargar PDF</button>
+        <button id="btnCerrar">❌ Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="lista.js"></script>
+</body>
+</html>
